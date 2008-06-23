@@ -1,0 +1,18 @@
+#The Main Page
+
+= Description =
+
+Add your content here.
+The lpk patch allows you to lookup ssh public keys over LDAP helping central authentication of multiple servers. This patch is an alternative to other authentication system working in a similar way (Kerberos, SecurID, etc...), except the fact that it's based on OpenSSH and its public key code.
+
+We are currently working on phasing out the old code and providing an abstraction layer for publick key lookup that would move LDAP code out of OpenSSH and provide a Nice and Clean abstraction layer that allows any kind of plugins to look up the key.
+
+The original openssh-lpk project (once hosted at the late OpenDarwin project) was originally created by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge]
+It is now maintained by Eric and [mailto:andrea@inversepath.com Andrea Barisani]. 
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
