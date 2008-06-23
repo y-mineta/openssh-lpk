@@ -1,4 +1,3 @@
-= OpenSSH LDAP PUblic Keys =
 == Description ==
 
 Add your content here.
