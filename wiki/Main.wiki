@@ -71,7 +71,6 @@ If groups are enabled, it will also check if the user that wants to login is in 
 
 Several additional tokens are added to sshd_config:
 
-[...]
 {{{
 UseLPK yes
 LpkServers         ldap://10.1.7.1 ldap://10.1.7.2
@@ -84,7 +83,6 @@ LpkForceTLS        yes
 LpkSearchTimelimit 3
 LpkBindTimelimit   3
 }}}
-[...]
 
 
 but we recommend using existing ldap.conf syntax from nss_ldap and pam_ldap with the following configuration:
