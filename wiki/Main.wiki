@@ -6,7 +6,7 @@ The lpk patch allows you to lookup ssh public keys over LDAP helping central aut
 We are currently working on phasing out the old code and providing an abstraction layer for publick key lookup that would move LDAP code out of OpenSSH and provide a Nice and Clean abstraction layer that allows any kind of plugins to look up the key.
 
 The original openssh-lpk project (once hosted at the late OpenDarwin project) was originally created by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge]
-was maintained by Eric and [mailto:andrea+NOSPAM+@inversepath.com Andrea Barisani] for a few conf running years and is now maintained by Eric.
+was maintained by Eric and [mailto:andrea+NOSPAM+@inversepath.com Andrea Barisani] and is now maintained by Eric.
 
 == Documentation ==
 
@@ -70,6 +70,7 @@ With lpk code enabled sshd adds LDAP public key lookup to its authentication met
 If groups are enabled, it will also check if the user that wants to login is in the group of the server he is trying to log into. If it fails, it falls back to the other enabled authentication methods.
 
 Several additional tokens are added to sshd_config:
+
 [...]
 {{{
 UseLPK yes
@@ -84,6 +85,8 @@ LpkSearchTimelimit 3
 LpkBindTimelimit   3
 }}}
 [...]
+
+
 but we recommend using existing ldap.conf syntax from nss_ldap and pam_ldap with the following configuration:
 
 {{{
