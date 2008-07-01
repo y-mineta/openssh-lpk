@@ -5,11 +5,11 @@ The lpk patch allows you to lookup ssh public keys over LDAP helping central aut
 
 We are currently working on phasing out the old code and providing an abstraction layer for publick key lookup that would move LDAP code out of OpenSSH and provide a Nice and Clean abstraction layer that allows any kind of plugins to look up the key.
 
-The original openssh-lpk project (once hosted at the late OpenDarwin project) was originally created by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge]
+The original openssh-lpk project (once hosted at the OpenDarwin project) was originally created by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge]
 was maintained by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge] and [mailto:andrea+NOSPAM+@inversepath.com Andrea Barisani].
 
 InversePath is now leaving from the development of the LDAP Public Key Project 
-now maintained by its creator Eric Auge.
+now maintained by its creator [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge].
 
 == Documentation ==
 
