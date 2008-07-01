@@ -95,3 +95,8 @@ LpkLdapConf /etc/ldap.conf
 Explaining how to configure/manage your LDAP directory is beyond our scope, but you can check the following presentation for a full overview on how to sensibly centralize users/accounts and much more with LDAP:
 
 [http://dev.inversepath.com/openssh-lpk/ldap_fosdem_2006.pdf FOSDEM 2006 LDAP presentation] (PDF file) 
+
+== Requirements ==
+
+The latest patch applies to [http://openssh.org/ OpenSSH] version 4.6.
+The [http://openldap.org/ OpenLDAP] client library.
