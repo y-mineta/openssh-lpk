@@ -8,8 +8,8 @@ We are currently working on phasing out the old code and providing an abstractio
 The original openssh-lpk project (once hosted at the OpenDarwin project) was originally created by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge]
 was maintained by [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge] and [mailto:andrea+NOSPAM+@inversepath.com Andrea Barisani].
 
-InversePath is now leaving from the development of the LDAP Public Key Project 
-now maintained by its creator [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge].
+InversePath is now leaving from the development of the LDAP Public Key. The project is 
+now maintained by its original creator [mailto:eric.auge+NOSPAM+@gmail.com Eric Auge].
 
 == Documentation ==
 
