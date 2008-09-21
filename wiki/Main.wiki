@@ -101,5 +101,6 @@ Explaining how to configure/manage your LDAP directory is beyond our scope, but 
 == Requirements ==
 
 The latest patch applies to [http://openssh.org/ OpenSSH] version 4.6.
+The latest contributed patch applies to [http://openssh.org/ OpenSSH] version 5.1p1
 
 The [http://openldap.org/ OpenLDAP] client library.
