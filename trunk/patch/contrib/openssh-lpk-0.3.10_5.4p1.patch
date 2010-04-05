@@ -12,9 +12,9 @@ being parsed correctly: http://bugs.gentoo.org/210110
 
 Forward-ported-from: openssh-lpk-5.1p1-0.3.10.patch
 
-diff -Nur gMakefile.in gMakefile.in
---- gMakefile.in	2010-02-24 02:18:51.000000000 -0500
-+++ gMakefile.in	2010-03-10 17:11:13.000000000 -0500
+diff -Nur Makefile.in Makefile.in
+--- Makefile.in	2010-02-24 02:18:51.000000000 -0500
++++ Makefile.in	2010-03-10 17:11:13.000000000 -0500
 @@ -91,7 +91,7 @@
  	auth2-gss.o gss-serv.o gss-serv-krb5.o \
  	loginrec.o auth-pam.o auth-shadow.o auth-sia.o md5crypt.o \
@@ -25,8 +25,8 @@ diff -Nur gMakefile.in gMakefile.in
  MANPAGES	= moduli.5.out scp.1.out ssh-add.1.out ssh-agent.1.out ssh-keygen.1.out ssh-keyscan.1.out ssh.1.out sshd.8.out sftp-server.8.out sftp.1.out ssh-rand-helper.8.out ssh-keysign.8.out ssh-pkcs11-helper.8.out sshd_config.5.out ssh_config.5.out
  MANPAGES_IN	= moduli.5 scp.1 ssh-add.1 ssh-agent.1 ssh-keygen.1 ssh-keyscan.1 ssh.1 sshd.8 sftp-server.8 sftp.1 ssh-rand-helper.8 ssh-keysign.8 ssh-pkcs11-helper.8 sshd_config.5 ssh_config.5
 diff -Nur gREADME.lpk gREADME.lpk
---- gREADME.lpk	1969-12-31 19:00:00.000000000 -0500
-+++ gREADME.lpk	2010-03-10 17:09:37.000000000 -0500
+--- README.lpk	1969-12-31 19:00:00.000000000 -0500
++++ README.lpk	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,267 @@
 +OpenSSH LDAP PUBLIC KEY PATCH 
 +Copyright (c) 2003 Eric AUGE (eau@phear.org)
@@ -295,9 +295,9 @@ diff -Nur gREADME.lpk gREADME.lpk
 +- CONTACT :
 +  - Eric AUGE <eau@phear.org>
 +  - Andrea Barisani <andrea@inversepath.com>
-diff -Nur gauth-rsa.c gauth-rsa.c
---- gauth-rsa.c	2010-03-04 05:53:35.000000000 -0500
-+++ gauth-rsa.c	2010-03-10 17:09:37.000000000 -0500
+diff -Nur auth-rsa.c gauth-rsa.c
+--- auth-rsa.c	2010-03-04 05:53:35.000000000 -0500
++++ auth-rsa.c	2010-03-10 17:09:37.000000000 -0500
 @@ -177,10 +177,96 @@
  	FILE *f;
  	u_long linenum = 0;
@@ -395,9 +395,9 @@ diff -Nur gauth-rsa.c gauth-rsa.c
  	/* The authorized keys. */
  	file = authorized_keys_file(pw);
  	debug("trying public RSA key file %s", file);
-diff -Nur gauth2-pubkey.c gauth2-pubkey.c
---- gauth2-pubkey.c	2010-03-04 05:53:35.000000000 -0500
-+++ gauth2-pubkey.c	2010-03-10 17:09:37.000000000 -0500
+diff -Nur auth2-pubkey.c gauth2-pubkey.c
+--- auth2-pubkey.c	2010-03-04 05:53:35.000000000 -0500
++++ auth2-pubkey.c	2010-03-10 17:09:37.000000000 -0500
 @@ -58,6 +58,10 @@
  #include "misc.h"
  #include "authfile.h"
@@ -489,9 +489,9 @@ diff -Nur gauth2-pubkey.c gauth2-pubkey.c
  	debug("trying public key file %s", file);
  	f = auth_openkeyfile(file, pw, options.strict_modes);
  
-diff -Nur gconfig.h.in gconfig.h.in
---- gconfig.h.in	2010-03-07 19:30:57.000000000 -0500
-+++ gconfig.h.in	2010-03-10 17:09:37.000000000 -0500
+diff -Nur config.h.in gconfig.h.in
+--- config.h.in	2010-03-07 19:30:57.000000000 -0500
++++ config.h.in	2010-03-10 17:09:37.000000000 -0500
 @@ -575,6 +575,9 @@
  /* Define to 1 if you have the <linux/if_tun.h> header file. */
  #undef HAVE_LINUX_IF_TUN_H
@@ -502,9 +502,9 @@ diff -Nur gconfig.h.in gconfig.h.in
  /* Define if your libraries define login() */
  #undef HAVE_LOGIN
  
-diff -Nur gconfigure gconfigure
---- gconfigure	2010-03-07 19:30:59.000000000 -0500
-+++ gconfigure	2010-03-10 17:09:37.000000000 -0500
+diff -Nur configure gconfigure
+--- configure	2010-03-07 19:30:59.000000000 -0500
++++ configure	2010-03-10 17:09:37.000000000 -0500
 @@ -1340,6 +1340,7 @@
    --with-tcp-wrappers[=PATH] Enable tcpwrappers support (optionally in PATH)
    --with-libedit[=PATH]   Enable libedit support for sftp
@@ -608,8 +608,8 @@ diff -Nur gconfigure gconfigure
  echo "                   libedit support: $LIBEDIT_MSG"
  echo "  Solaris process contract support: $SPC_MSG"
 diff -Nur gconfigure.ac gconfigure.ac
---- gconfigure.ac	2010-03-04 23:04:35.000000000 -0500
-+++ gconfigure.ac	2010-03-10 17:09:37.000000000 -0500
+--- configure.ac	2010-03-04 23:04:35.000000000 -0500
++++ configure.ac	2010-03-10 17:09:37.000000000 -0500
 @@ -1323,6 +1323,37 @@
  	esac ]
  )
@@ -657,8 +657,8 @@ diff -Nur gconfigure.ac gconfigure.ac
  echo "                   libedit support: $LIBEDIT_MSG"
  echo "  Solaris process contract support: $SPC_MSG"
 diff -Nur gldapauth.c gldapauth.c
---- gldapauth.c	1969-12-31 19:00:00.000000000 -0500
-+++ gldapauth.c	2010-03-10 17:09:37.000000000 -0500
+--- ldapauth.c	1969-12-31 19:00:00.000000000 -0500
++++ ldapauth.c	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,575 @@
 +/* 
 + * $Id: openssh-lpk-4.3p1-0.3.7.patch,v 1.3 2006/04/18 15:29:09 eau Exp $
@@ -1235,9 +1235,9 @@ diff -Nur gldapauth.c gldapauth.c
 +}
 +
 +#endif /* WITH_LDAP_PUBKEY */
-diff -Nur gldapauth.h gldapauth.h
---- gldapauth.h	1969-12-31 19:00:00.000000000 -0500
-+++ gldapauth.h	2010-03-10 17:09:37.000000000 -0500
+diff -Nur ldapauth.h gldapauth.h
+--- ldapauth.h	1969-12-31 19:00:00.000000000 -0500
++++ ldapauth.h	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,124 @@
 +/*
 + * $Id: openssh-lpk-4.3p1-0.3.7.patch,v 1.3 2006/04/18 15:29:09 eau Exp $ 
@@ -1364,8 +1364,8 @@ diff -Nur gldapauth.h gldapauth.h
 +
 +#endif
 diff -Nur glpk-user-example.txt glpk-user-example.txt
---- glpk-user-example.txt	1969-12-31 19:00:00.000000000 -0500
-+++ glpk-user-example.txt	2010-03-10 17:09:37.000000000 -0500
+--- lpk-user-example.txt	1969-12-31 19:00:00.000000000 -0500
++++ lpk-user-example.txt	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,117 @@
 +
 +Post to ML -> User Made Quick Install Doc.
@@ -1484,9 +1484,9 @@ diff -Nur glpk-user-example.txt glpk-user-example.txt
 +puTTY). Login should succeed.
 +
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-diff -Nur gopenssh-lpk_openldap.schema gopenssh-lpk_openldap.schema
---- gopenssh-lpk_openldap.schema	1969-12-31 19:00:00.000000000 -0500
-+++ gopenssh-lpk_openldap.schema	2010-03-10 17:09:37.000000000 -0500
+diff -Nur openssh-lpk_openldap.schema gopenssh-lpk_openldap.schema
+--- openssh-lpk_openldap.schema	1969-12-31 19:00:00.000000000 -0500
++++ openssh-lpk_openldap.schema	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,19 @@
 +#
 +# LDAP Public Key Patch schema for use with openssh-ldappubkey
@@ -1507,9 +1507,9 @@ diff -Nur gopenssh-lpk_openldap.schema gopenssh-lpk_openldap.schema
 +	DESC 'MANDATORY: OpenSSH LPK objectclass'
 +	MUST ( sshPublicKey $ uid ) 
 +	)
-diff -Nur gopenssh-lpk_sun.schema gopenssh-lpk_sun.schema
---- gopenssh-lpk_sun.schema	1969-12-31 19:00:00.000000000 -0500
-+++ gopenssh-lpk_sun.schema	2010-03-10 17:09:37.000000000 -0500
+diff -Nur openssh-lpk_sun.schema gopenssh-lpk_sun.schema
+--- openssh-lpk_sun.schema	1969-12-31 19:00:00.000000000 -0500
++++ openssh-lpk_sun.schema	2010-03-10 17:09:37.000000000 -0500
 @@ -0,0 +1,21 @@
 +#
 +# LDAP Public Key Patch schema for use with openssh-ldappubkey
@@ -1532,9 +1532,9 @@ diff -Nur gopenssh-lpk_sun.schema gopenssh-lpk_sun.schema
 +	DESC 'MANDATORY: OpenSSH LPK objectclass'
 +	MUST ( sshPublicKey $ uid ) 
 +	)
-diff -Nur gservconf.h gservconf.h
---- gservconf.h	2010-03-04 05:53:35.000000000 -0500
-+++ gservconf.h	2010-03-10 17:09:37.000000000 -0500
+diff -Nur servconf.h gservconf.h
+--- servconf.h	2010-03-04 05:53:35.000000000 -0500
++++ servconf.h	2010-03-10 17:09:37.000000000 -0500
 @@ -16,6 +16,10 @@
  #ifndef SERVCONF_H
  #define SERVCONF_H
@@ -1557,8 +1557,8 @@ diff -Nur gservconf.h gservconf.h
  	int	num_permitted_opens;
  
 diff -Nur gsshd.c gsshd.c
---- gsshd.c	2010-03-07 07:05:17.000000000 -0500
-+++ gsshd.c	2010-03-10 17:09:37.000000000 -0500
+--- sshd.c	2010-03-07 07:05:17.000000000 -0500
++++ sshd.c	2010-03-10 17:09:37.000000000 -0500
 @@ -127,6 +127,10 @@
  int deny_severity;
  #endif /* LIBWRAP */
@@ -1587,9 +1587,9 @@ diff -Nur gsshd.c gsshd.c
  	debug("sshd version %.100s", SSH_RELEASE);
  
  	/* Store privilege separation user for later use if required. */
-diff -Nur gsshd_config gsshd_config
---- gsshd_config	2009-10-11 06:51:09.000000000 -0400
-+++ gsshd_config	2010-03-10 17:09:37.000000000 -0500
+diff -Nur sshd_config gsshd_config
+--- sshd_config	2009-10-11 06:51:09.000000000 -0400
++++ sshd_config	2010-03-10 17:09:37.000000000 -0500
 @@ -107,6 +107,21 @@
  # no default banner path
  #Banner none
@@ -1612,9 +1612,9 @@ diff -Nur gsshd_config gsshd_config
  # override default of no subsystems
  Subsystem	sftp	/usr/libexec/sftp-server
  
-diff -Nur gsshd_config.5 gsshd_config.5
---- gsshd_config.5	2010-03-04 18:41:45.000000000 -0500
-+++ gsshd_config.5	2010-03-10 17:09:37.000000000 -0500
+diff -Nur sshd_config.5 gsshd_config.5
+--- sshd_config.5	2010-03-04 18:41:45.000000000 -0500
++++ sshd_config.5	2010-03-10 17:09:37.000000000 -0500
 @@ -1043,6 +1043,62 @@
  program.
  The default is
